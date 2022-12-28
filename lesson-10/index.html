@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 10</title>
+    <style>
+        body {
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+    </style>
+    <script src="./index.js"></script>
+</head>
+<body>
+    <h1>Lesson 10</h1>
+    <h3>Що таке замикання?<br>
+        Лексична область видимості <br>
+        Функція, що самовизивається (IIFE) <br>
+        Рекурсія <br>
+    </h3>
+    <script>
+        (function(w,s,l) {
+            let counter = 0;
+            w.console.log('module')
+        })(window, '12354', new Date())
+    </script>
+    <script>
+        const tracker = (function(w,s,l) {
+            let counter = 500;
+            
+            return {
+                title: 'analytics',
+                showCounter() {
+                    return counter;
+                },
+                increase() {
+                    counter += 1;
+                }
+
+            }
+        })(window, '12354', new Date());
+
+        tracker.increase();
+        const currentCount = tracker.showCounter();
+
+        console.log(currentCount)
+    </script>
+</body>
+</html>
